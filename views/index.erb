@@ -46,6 +46,7 @@
               <ul class="list-group">
                 <% post.comments.each do |comment| %>
                   <li class="list-group-item"><%= comment.body %></li>
+                <% end %>
                 <li class="list-group-item">
                   <form class="form-inline" action="/posts/<%= post.id %>/comment" method="POST">
                     <div class="form-group">

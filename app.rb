@@ -1,12 +1,12 @@
 require 'bundler/setup'
 Bundler.require
 require 'sinatra/reloader' if development?
-require './model'
+require './models'
 
-get '/'
+get '/' do
   @post = Post.order(updated_at: :desc)
   
-  erb :imdex
+  erb :index
 end
 
 get '/posts' do
