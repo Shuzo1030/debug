@@ -4,13 +4,15 @@ require 'sinatra/reloader' if development?
 require './models'
 
 get '/' do
-  @post = Post.order(updated_at: :desc)
+  @posts = Post.order(updated_at: :desc)
   
   erb :index
 end
 
-get '/posts' do
-  Post.create(title: params[:title], content: params[:body])
+post '/posts' do
+  Post.create(title: params[:title], body: params[:body])
+  
+  redirect "/"
 end
 
 post '/posts/:id/comment' do
